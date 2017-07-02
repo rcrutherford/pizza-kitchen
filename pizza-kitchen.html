@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript" src="scripts/cook.js"></script>
+		<script type="text/javascript" src="scripts/oven.js"></script>
+		<script type="text/javascript" src="scripts/freezer.js"></script>
+		<script type="text/javascript" src="scripts/customer.js"></script>
+		<script type="text/javascript" src="scripts/pizzabox.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="cook1.css">
+		<script>
+			var onOrder=[];
+			var InOven=[];
+			var Ready = [];
+			var Gone = [];
+			var pizza = 0;
+			window.onload = function() {
+				cook1 = new Cook(1);
+				cook1.ChangeImageLeft();
+				// cook1.OkeyDokey();
+				cook2 = new Cook(2);
+				cook2.ChangeImageRight();
+
+				cook3 = new Cook(3);
+				cook3.ChangeImageRight();
+
+				oven1 = new Oven(1);
+				oven1.Open();
+				oven2 = new Oven(2);
+				oven2.Open();
+				
+				freezer1 = new Freezer(1);
+				freezer2 = new Freezer(2);
+				freezer1.Close();
+				freezer2.Close();
+
+				customer1 = new Customer(1);
+				customer1.Arrive();
+
+				customer2 = new Customer(2);
+
+				pizzabox1 = new Pizzabox(1);
+				pizzabox2 = new Pizzabox(2);
+				
+				// getComputedStyle(document.getElementById('cook1move')).width.replace('px','');
+				var cook1divwidth = getComputedStyle(document.getElementById('cook1move')).width.replace('px','');
+				document.documentElement.style.setProperty('--cook1-rightmostmovement',cook1divwidth-100);
+				var cook2divwidth = getComputedStyle(document.getElementById('cook2move')).width.replace('px','');
+				document.documentElement.style.setProperty('--cook2-rightmostmovement',cook2divwidth-100);
+				
+				var cook3divwidth = getComputedStyle(document.getElementById('cook3move')).width.replace('px','');
+				document.documentElement.style.setProperty('--cook3-rightmostmovement',cook3divwidth-80);
+				var custarrivevwidth = getComputedStyle(document.getElementById('custarrive')).width.replace('px','');
+				document.documentElement.style.setProperty('--cust-rightmostmovement',custarrivevwidth-100);
+				
+				var c1 = document.getElementById("cook1");
+				var c2 = document.getElementById("cook2");
+
+			    
+			}
+		</script>
+		<style type="text/css">
+		
+		</style>
+	</head>
+	<body>
+		<!-- top row of 6  -->
+		<div class="row">
+			<div id="pickupline" class="cell">
+				
+			</div>
+			
+			<div id="pickuptable" class="cell">
+				<img id="pickuptableimg" src="images/table.png">
+				<img id="computeronpickuptableimg" src="images/computer-left.png">
+				<img id="pizzabox1" class="pizzabox" src="">
+				<img id="pizzabox2" class="pizzabox" src="">
+			</div>
+			
+			<div id="cook3move" class="cell">
+				<img id="cook3" src="" />
+			</div>
+			
+			<div id="ovens" class="cell">
+				<img id="oven1" src="">
+				<img id="oven2" src="">
+			</div>
+			
+			<div id="cook2move" class="cell">
+				<img id="cook2" src="" />
+				<audio src="sounds/sound-footsteps-2.wav" id="footsteps2" />
+			</div>
+				
+			<div id="freezers" class="cell">
+				<img id="freezer1" src="">
+				<img id="freezer2" src="">
+			</div>
+		
+		</div>
+			
+		<div class="row">
+			
+			<div id="spaceleft" class="cell"></div>
+			
+			<div id="HUD" class="cell">
+				<div id="PizzasOnOrder" class="HUDitem">OnOrder</div>
+				<div id="PizzasInOven" class="HUDitem">InOven</div>
+				<div id="PizzasReady" class="HUDitem">Ready</div>
+				<div id="PizzasGone" class="HUDitem">Gone</div>
+			</div>
+			
+			<div id="spaceright" class="cell"></div>
+		</div>
+		<div class="row">
+			
+			<div id="custarrive" class="cell">
+				<img id="customer1" src="">
+				<audio src="sounds/ask1.wav" id="ask1" />
+				<img id="customer2" src="">
+				<audio src="sounds/ask2.wav" id="ask2" />
+				<img id="customer3" src="">
+				<img id="customer4" src="">
+				<img id="customer5" src="">
+			</div>
+			<div id="ordertable" class="cell">
+				<img id="ordertableimg" src="images/table.png">
+			</div>
+			<div id="cook1move" class="cell">
+				<img id="cook1" src="" >
+				<audio src="sounds/sound-footsteps-1.wav" id="footsteps1" />
+				<audio src="sounds/sound-typing3s.wav" id="type1" />
+				<audio src="sounds/sm64_mario_okey-dokey.wav" id="okeydokey" />
+
+			</div>
+			<div id="computertable" class="cell">
+				<img id="computertableimg" src="images/table.png">
+				<img id="computeroncomputertableimg" src="images/computer-right.png">
+			</div>
+
+		</div>
+		<button type="text" id="pause" value="Pause Chef" >
+	</body>
+	<script type="text/javascript">
+	
+	// main = document.getElementById('pause');
+	// main.addEventListener("change", mainEventHandler, true);
+	// function mainEventHandler () {
+	// 	alert('new value: '+main.value);
+	// }
+	</script>
+</html>

@@ -1,0 +1,66 @@
+ #cook1 {
+      animation-name: walk1;
+      animation-duration:3s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: ease-in-out;
+      max-height:90%;
+      left: 0;
+      bottom: 0;
+      z-index: 10;
+    }
+    #cook2 {
+      animation-name: walk2;
+      animation-duration:3s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: ease-in-out;
+      max-height:70%;
+      left: calc(var(--cook2-rightmostmovement) * 1px);
+      bottom: 0;
+      z-index: 10;
+    }
+    #cook3 {
+      /*animation-name: walk3;*/
+      animation-duration:3s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: ease-in-out;
+      max-height:70%;
+      left: calc(var(--cook3-rightmostmovement) * 1px);
+      bottom: 0;
+      z-index: 10;
+    }
+    @keyframes walk1 {
+      from {
+        bottom: 0px;
+        left: -50px;
+      }
+
+      to {
+        bottom: 0px;
+        left: calc(var(--cook1-rightmostmovement) * 1px);
+      }
+    }
+    @keyframes walk2 {
+      from {
+        bottom: 0px;
+        left: calc(var(--cook2-rightmostmovement) * 1px);
+        
+      }
+      to {
+        bottom: 0px;
+        left: -60px;
+      }
+    }
+    @keyframes walk3 {
+      from {
+        bottom: 0px;
+        left: 100px;
+        /*left: calc(var(--cook3-rightmostmovement) * 1px);*/
+      }
+      to {
+        bottom: 0px;
+        left: -50px;
+      }
+    }

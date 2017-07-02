@@ -1,0 +1,124 @@
+    :root {
+      --cook1-rightmostmovement: 10;
+      --cook2-rightmostmovement: 10;
+      --cook3-rightmostmovement: 10;
+      --cust-rightmostmovement: 10;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+    .cell {
+      display: flex;
+      background: white;
+      outline:1px solid red;
+      flex: 1; /*1 20%;*/
+      min-width: 150px;
+      min-height: 200px;
+      position: relative;
+      justify-content: center;
+    }
+    .pizzabox {
+      bottom: 60px;
+      left: 0;
+      position: absolute;
+    }
+
+    /*#pause {
+      display: none;
+    }*/
+    #pickuptableimg {
+      width:100%;
+      max-height:40%;
+      position: absolute;
+      bottom: 0;
+    }
+    #computeronpickuptableimg {
+      max-width:100%;
+      max-height:30%;
+      position: absolute;
+      bottom:55px;
+      right: 20px;
+    }
+
+    #ordertableimg {
+      align-self: flex-end;
+      max-width:100%;
+      max-height:50%;*/
+      position: absolute;
+      bottom: 0;
+    }
+    #computertableimg {
+      /*align-self: flex-end;*/
+      max-width:100%;
+      max-height:50%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    #computeroncomputertableimg {
+      max-width:100%;
+      max-height:35%;
+      position: absolute;
+      bottom:65px;
+      left: 25px;
+    }
+    #cook1move {
+      flex:2;
+    }
+   
+    .paused {
+        -webkit-animation-play-state:paused;
+        -moz-animation-play-state:paused;
+        -o-animation-play-state:paused; 
+        animation-play-state:paused;
+    }
+    
+    
+    @keyframes custarrive {
+      0% {
+        bottom: 0;
+        left: 0;
+      }
+      50% {
+        bottom: 0px;
+        left: calc((var(--cust-rightmostmovement)) * 1px);
+      }
+      100% {
+        bottom: -50px;
+        left: -300px;
+      }  
+    }
+    
+    #customers {
+      flex:2;
+    }
+    #customer1 {
+      animation-name: custarrive;
+      animation-duration:4s;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-timing-function: ease-in-out;
+    }
+    #customer2 {
+      /*animation-name: custarrive;*/
+      animation-duration:2s;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-timing-function: ease-in-out;
+    }
+    #HUD {
+      height:200px;
+      flex:2;
+      background-color: lightgreen;
+      display: flex;
+    }
+    .HUDitem {
+      flex:1;
+      color: black;
+      text-align: center;
+      overflow:: auto;
+    }
+
+    

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="static/scripts/cook.js"></script>
+
+	<script>
+	window.onload = function() {
+		let cook1 = new Cook(1);
+
+		cook1.StartWalk();
+		cook1.Type();
+		cook1.OrderUp();
+	}
+	</script>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<img class="table table1" src="static/images/table.png" id="table1" />
+	<img class="table table2" src="static/images/table.png" id="table2" />
+	<img class="table table3" src="static/images/table.png" id="table3" />
+
+	<img class="freezer" src="static/images/freezer-closed.jpg" id="freezer" />
+
+	<img class="oven" src="static/images/oven-open.jpg" id="oven" />
+
+	<img class="computer computer1" src="static/images/computer-left.png" />
+
+	<img class="computer computer2" src="static/images/computer-right.png" />
+
+	<img class="cook cook1" id="cook1" src="static/images/pizza-man-right.gif" />
+	<audio src="static/sounds/sound-footsteps-1.wav" id="footsteps1" />
+
+	<img class="cook cook2" id="cook2" src="static/images/pizza-man-right.gif" />
+	<audio src="static/sounds/sound-footsteps-2.wav" id="footsteps1" />
+
+	<img class="cook cook3" id="cook3" src="static/images/pizza-man-right.gif" />
+	<audio src="static/sounds/sound-footsteps-3.wav" id="footsteps1" />
+
+	<audio id="orderUp" src="static/sounds/sound-order-up.wav" />
+	<audio id="type1" src="static/sounds/sound-computer-keyboard.wav" />
+	<audio id="type2" src="static/sounds/sound-computer-keyboard.wav" />
+	<audio id="type3" src="static/sounds/sound-computer-keyboard.wav" />
+</body>
+</html>
