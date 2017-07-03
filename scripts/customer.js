@@ -4,26 +4,29 @@ const Customer = function(id) {
 	const customerImg = document.getElementById('customer'+id);
 	const customerArrive = 'images/customer'+id.toString()+'.png';
 	const audioAsk = document.getElementById('ask' + id);
-	var cook1 = document.getElementById('cook1');
+	//var cook1 = document.getElementById('cook1');
 	//console.log(customerArrive);
 
 	function toggleCust(e) {
         customerImg.classList.toggle('paused');
         audioAsk.play();
         var myPauseTimer = setTimeout(function(){customerImg.classList.toggle('paused');},2000);
+        var myPauseTimer2 = setTimeout(function(){cook1.fnOK();},2200);
         
     }
 	
 	this.Arrive = function() {
 		customerImg.attributes.src.nodeValue = customerArrive;
 		var myPauseTimer = setTimeout(toggleCust,2000);
-		
+		//var myPauseTimer2 = setTimeout(cook1.fnOK,2200);
+		eventdone = true;
 	}
 
 	function listener(e) {
 		// console.dir(e);
 		if (e.type == "animationend") {
-	  		customerImg.style.display = "none"
+	  		customerImg.style.display = "none";
+
 	    	// console.log('end');
 		}
 	}

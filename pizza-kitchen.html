@@ -16,10 +16,21 @@
 			var Ready = [];
 			var Gone = [];
 			var pizza = 0;
+			var eventdone = false;
+			
+			var cook1;
+			var cook2;
+			var cook3;
+			var freezer1;
+			//var freezer2;
+			var oven1;
+			var cook1;
+
 			window.onload = function() {
 				cook1 = new Cook(1);
 				cook1.ChangeImageLeft();
-				// cook1.OkeyDokey();
+				//cook1.fnOK();
+				//cook1.OkeyDokey();
 				cook2 = new Cook(2);
 				cook2.ChangeImageRight();
 
@@ -28,16 +39,17 @@
 
 				oven1 = new Oven(1);
 				oven1.Open();
-				oven2 = new Oven(2);
-				oven2.Open();
+				// oven2 = new Oven(2);
+				// oven2.Open();
 				
 				freezer1 = new Freezer(1);
-				freezer2 = new Freezer(2);
 				freezer1.Close();
-				freezer2.Close();
+				// freezer2 = new Freezer(2);
+				// freezer2.Close();
 
 				customer1 = new Customer(1);
 				customer1.Arrive();
+
 
 				customer2 = new Customer(2);
 
@@ -59,6 +71,24 @@
 				var c2 = document.getElementById("cook2");
 
 			    
+				// var promise = new Promise(function(resolve, reject) {
+				// 	// do a thing, possibly async, then…
+				// 	customer1.Arrive();
+				// 	if (eventdone) {
+				// 	resolve("Stuff worked!");
+				// 	}
+				// 	else {
+				// 	reject(Error("It broke"));
+				// 	}
+				// });
+
+				// promise.then(function(result) {
+				// 	cook1.fnOK();
+				//   	console.log(result); // "Stuff worked!"
+				// }, function(err) {
+				//   	console.log(err); // Error: "It broke"
+				// });
+
 			}
 		</script>
 		<style type="text/css">

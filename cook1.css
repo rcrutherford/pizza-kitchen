@@ -11,7 +11,7 @@
     }
     #cook2 {
       animation-name: walk2;
-      animation-duration:3s;
+      animation-duration:2s;
       animation-iteration-count: infinite;
       animation-direction: alternate;
       animation-timing-function: ease-in-out;
@@ -21,8 +21,8 @@
       z-index: 10;
     }
     #cook3 {
-      /*animation-name: walk3;*/
-      animation-duration:3s;
+      animation-name: walk3;
+      animation-duration:2s;
       animation-iteration-count: infinite;
       animation-direction: alternate;
       animation-timing-function: ease-in-out;
@@ -50,17 +50,16 @@
       }
       to {
         bottom: 0px;
-        left: -60px;
+        left: -120px;
       }
     }
     @keyframes walk3 {
       from {
         bottom: 0px;
-        left: 100px;
-        /*left: calc(var(--cook3-rightmostmovement) * 1px);*/
+        left: calc(var(--cook3-rightmostmovement) * 1px);
       }
       to {
         bottom: 0px;
-        left: -50px;
+        left: -30px;
       }
     }
