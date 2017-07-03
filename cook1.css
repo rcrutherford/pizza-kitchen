@@ -1,4 +1,4 @@
- #cook1 {
+    #cook1 {
       animation-name: walk1;
       animation-duration:3s;
       animation-iteration-count: infinite;
@@ -22,7 +22,7 @@
     }
     #cook3 {
       animation-name: walk3;
-      animation-duration:2s;
+      animation-duration:2.5s;
       animation-iteration-count: infinite;
       animation-direction: alternate;
       animation-timing-function: ease-in-out;
@@ -50,7 +50,7 @@
       }
       to {
         bottom: 0px;
-        left: -120px;
+        left: calc(1.7 * var(--cook2-rightmostmovement) * -1px);
       }
     }
     @keyframes walk3 {

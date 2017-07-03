@@ -8,12 +8,22 @@ const Cook = function(id) {
 	var picCarryingPizza = 'images/pizza-man.gif';
 	var picCarryingFrozenPizza = 'images/pizza-man-frozen.gif';
 	var picRightTyping = 'images/pizza-man-right-typing.gif';
+	var picLeftTyping = 'images/pizza-man-left-typing.gif';
 
 	var aSteps = document.getElementById('footsteps' + id);
 	var aOkeyDokey = document.getElementById('okeydokey');
 	var aOrderUp = document.getElementById('orderUp');
 	var aTyping = document.getElementById('type' + id);
 	var HUDOnOrder = document.getElementById('PizzasOnOrder');
+
+
+	//console.log(cookImg.style.animationDuration);
+	var cook1AnimationDuration = 3000;
+	var cook2AnimationDuration = 2000;
+	var cook3AnimationDuration = 2500;
+	
+	let p = document.getElementById("cook"+id);
+    // let b = document.getElementById("pause");
 
 	this.OkeyDokey = function() {
 		aOkeyDokey.play();
@@ -51,7 +61,14 @@ const Cook = function(id) {
 	this.ChangeImageRightTyping = function() {
 		changeImage('righttyping');
 	}
+	this.ChangeImageLeftTyping = function() {
+		changeImage('lefttyping');
+	}
 	
+	function getRandom(min, max) {
+			    var result = Math.random() * (max - min) + min;
+			    return Math.round(result);
+			}
 
 	function changeImage(imgName) {
 		switch(imgName) {
@@ -75,6 +92,10 @@ const Cook = function(id) {
 				cookImg.attributes.src.nodeValue = picRightTyping;
 				break;
 
+			case 'lefttyping':
+				cookImg.attributes.src.nodeValue = picLeftTyping;
+				break;
+
 			default:
 				throw 'Can\'t change the pizza in the manner you asked for';
 		}
@@ -86,23 +107,22 @@ const Cook = function(id) {
 		cook1.ChangeImageRight();
 		cook1.StartWalk(); //start walking sound
 		cook1.togglecook(); //start moving
-		var myTimeout = setTimeout(cook1ActionsRight,3000);
+		var myTimeout = setTimeout(cook1ActionsRight,cook1AnimationDuration);
 	}
 
-	let p = document.getElementById("cook"+id);
-    // let b = document.getElementById("pause");
+	
     function cook1ActionsLeft() {
     	toggleCook();
 		p.attributes['src'].nodeValue = "images/pizza-man-left.gif";
     }
 
-	function cook1ActionsRight() {
+	function cook1ActionsRight () {
     	cook1.togglecook(); //stop moving
     	cook1.ChangeImageRightTyping();
 		cook1.Type();
-		var myTimeout = setTimeout(cook1goback,3000); //after 3 seconds head back left
+		var myTimeout = setTimeout(cook1goback,cook1AnimationDuration); //after 3 seconds head back left
 	}
-	function cook1goback() {
+	function cook1goback () {
 		cook1.ChangeImageLeft();
 		cook1.togglecook();
 		cook1.StartWalk();
@@ -115,18 +135,39 @@ const Cook = function(id) {
 		}
 		HUDOnOrder.innerHTML = strHUDOnOrder;
 		cook2ActionsGetPizza();
-		var myTimeout = setTimeout(cook1.togglecook,3000)
+		var myTimeout = setTimeout(cook1.togglecook,cook1AnimationDuration)
 
 	}
 	function cook2ActionsGetPizza () {
     	freezer1.Open(); //open freezer 1
-    	var fclose = setTimeout(freezer1.Close,2000)
+    	let fclose = setTimeout(freezer1.Close,cook2AnimationDuration/2)
     	cook2.ChangeImageFrozen();
     	cook2.StartWalk();
-    	cook2.togglecook();
-    	var myTimeout = setTimeout(cook2.togglecook,2000)
-    	var oclose = setTimeout(oven1.Close,2000)
+    	cook2.togglecook(); //start walking with pizza
+    	let c2Return= setTimeout(cook2.cook2Return,cook2AnimationDuration);
+    	
     }
+    this.cook2Return = function () {
+    	console.log('cook2Return');
+    	cook2.ChangeImageRight();
+    	oven1.Close();
+    	cook2.StartWalk();
+    	let c2Stop = setTimeout(cook2.togglecook,cook2AnimationDuration);
+    	let otimer = setTimeout(cook3.cook3removepizza,getRandom(3,6)*1000);
+    }
+
+    this.cook3removepizza = function () {
+    	oven1.Open();
+    	cook3.ChangeImagePizza();
+    	cook3.togglecook();
+    	// let c3type = setTimeout(cook3.cook3starttyping,cook3AnimationDuration);
+    }
+
+    // function cook3starttyping () {
+    // 	cook3.togglecook();
+    // 	cook3.ChangeImageLeftTyping();
+    // 	cook3.Type();
+    // }
 	
     this.togglecook = function(e) {
 		p.classList.toggle('paused');

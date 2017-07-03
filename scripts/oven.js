@@ -6,13 +6,21 @@ const Oven = function(id) {
 	const ovenOpen = 'images/oven-open.png';
 	const ovenClosed = 'images/oven-closed.png';
 	
-	
+	const aOvenOpen= document.getElementById('audioovenopen');
+	const aOvenClose= document.getElementById('audioovenopen');
+
+	this.OrderUp = function() {
+		aOrderUp.play();
+	}
+
 	this.Open = function() {
 		ovenImg.attributes.src.nodeValue = ovenOpen;
+		aOvenOpen.play();
 	}
 
 	this.Close = function() {
 		ovenImg.attributes.src.nodeValue = ovenClosed;
+		aOvenClose.play();
 	}
 
 	var maxWH = (60 - (id * 10));
