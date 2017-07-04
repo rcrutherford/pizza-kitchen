@@ -12,7 +12,7 @@ const Cook = function(id) {
 
 	var aSteps = document.getElementById('footsteps' + id);
 	var aOkeyDokey = document.getElementById('okeydokey');
-	var aOrderUp = document.getElementById('orderUp');
+	var aOrderUp = document.getElementById('orderup');
 	var aTyping = document.getElementById('type' + id);
 	var HUDOnOrder = document.getElementById('PizzasOnOrder');
 
@@ -134,7 +134,16 @@ const Cook = function(id) {
 			strHUDOnOrder = strHUDOnOrder +'<br>Pizza: '+i;
 		}
 		HUDOnOrder.innerHTML = strHUDOnOrder;
-		cook2ActionsGetPizza();
+		cook1.OrderUp();
+		while (oven1busy) {
+			var myTimeout = setTimeout(function(){},1000);
+			console.log('waiting on oven');
+			break;
+		}
+		if (!oven1busy) {
+			var myTimeout = setTimeout(cook2ActionsGetPizza,1250)
+		}
+		
 		var myTimeout = setTimeout(cook1.togglecook,cook1AnimationDuration)
 
 	}
@@ -148,26 +157,33 @@ const Cook = function(id) {
     	
     }
     this.cook2Return = function () {
-    	console.log('cook2Return');
+    	//console.log('cook2Return');
+    	onOrder.pop(pizza);
+		inOven.push(pizza);
     	cook2.ChangeImageRight();
     	oven1.Close();
+    	oven1busy = true;
     	cook2.StartWalk();
     	let c2Stop = setTimeout(cook2.togglecook,cook2AnimationDuration);
     	let otimer = setTimeout(cook3.cook3removepizza,getRandom(3,6)*1000);
     }
 
     this.cook3removepizza = function () {
-    	oven1.Open();
-    	cook3.ChangeImagePizza();
-    	cook3.togglecook();
-    	// let c3type = setTimeout(cook3.cook3starttyping,cook3AnimationDuration);
-    }
+    	oven1.Done();
+    	var myTimeout = setTimeout(function(){
+    		oven1.Open();
+	    	oven1busy = false;
+	    	cook3.ChangeImagePizza();
+	    	cook3.togglecook(); //start walking
+	    	let c3type = setTimeout(cook3.cook3starttyping,cook3AnimationDuration);},1000);
+	}
 
-    // function cook3starttyping () {
-    // 	cook3.togglecook();
-    // 	cook3.ChangeImageLeftTyping();
-    // 	cook3.Type();
-    // }
+    this.cook3starttyping = function () {
+    	cook3.togglecook();
+    	cook3.ChangeImageLeftTyping();
+    	cook3.Type();
+    	document.getElementById('pizzabox1').style.display='flex';
+    }
 	
     this.togglecook = function(e) {
 		p.classList.toggle('paused');

@@ -8,11 +8,11 @@ const Oven = function(id) {
 	
 	const aOvenOpen= document.getElementById('audioovenopen');
 	const aOvenClose= document.getElementById('audioovenopen');
+	const aOvenDone= document.getElementById('audioovendone');
 
-	this.OrderUp = function() {
-		aOrderUp.play();
+	this.Done = function() {
+		aOvenDone.play();
 	}
-
 	this.Open = function() {
 		ovenImg.attributes.src.nodeValue = ovenOpen;
 		aOvenOpen.play();

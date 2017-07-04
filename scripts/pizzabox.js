@@ -5,12 +5,13 @@ const Pizzabox = function(id) {
 	const pizzaboxLeft = 'images/pizza-box-left.png';
 	const pizzaboxRight = 'images/pizza-box-right.png';
 	
+	pizzaboxImg.style.display = "none";
 
-	if (id % 2 == 0) {
+	if (id % 2 === 0) {
 		pizzaboxImg.attributes.src.nodeValue = pizzaboxLeft;
 	}
 	
-	if (id % 2 == 1) {
+	if (id % 2 === 1) {
 		pizzaboxImg.attributes.src.nodeValue = pizzaboxRight;
 	}
 	

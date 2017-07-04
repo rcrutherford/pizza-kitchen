@@ -13,11 +13,12 @@
 		
 		<script>
 			var onOrder=[];
-			var InOven=[];
-			var Ready = [];
-			var Gone = [];
+			var inOven=[];
+			var ready = [];
+			var gone = [];
 			var pizza = 0;
 			var eventdone = false;
+			var oven1busy= false;
 			
 			var cook1;
 			var cook2;
@@ -27,6 +28,30 @@
 			var oven1;
 			var cook1;
 
+			function HUD(pizza) {
+				var HUDOnOrder = document.getElementById('PizzasOnOrder');
+				var strHUDOnOrder = '';
+				for (var i in onOrder) {
+					i++;
+					strHUDOnOrder = strHUDOnOrder +'<br>Pizza: '+i;
+				}	
+				var strHUDInOven = '';
+				for (var i in inOven) {
+					i++;
+					strHUDInOven = strHUDInOven +'<br>Pizza: '+i;
+				}
+				var strHUDready = '';
+				for (var i in ready) {
+					i++;
+					strHUDready = strHUDready +'<br>Pizza: '+i;
+				}
+				var strHUDgone = '';
+				for (var i in gone) {
+					i++;
+					strHUDgone = strHUDgone +'<br>Pizza: '+i;
+				}
+							
+			}
 			
 
 			window.onload = function() {
@@ -58,6 +83,18 @@
 
 				pizzabox1 = new Pizzabox(1);
 				pizzabox2 = new Pizzabox(2);
+				pizzabox3 = new Pizzabox(3);
+				pizzabox4 = new Pizzabox(4);
+				pizzabox5 = new Pizzabox(5);
+				pizzabox6 = new Pizzabox(6);
+				pizzabox7 = new Pizzabox(7);
+				pizzabox8 = new Pizzabox(8);
+				pizzabox9 = new Pizzabox(9);
+				pizzabox10 = new Pizzabox(10);
+				pizzabox11 = new Pizzabox(11);
+				pizzabox12 = new Pizzabox(12);
+				
+				
 				
 				// getComputedStyle(document.getElementById('cook1move')).width.replace('px','');
 				var cook1divwidth = getComputedStyle(document.getElementById('cook1move')).width.replace('px','');
@@ -110,17 +147,30 @@
 				<img id="computeronpickuptableimg" src="images/computer-left.png">
 				<img id="pizzabox1" class="pizzabox" src="">
 				<img id="pizzabox2" class="pizzabox" src="">
+				<img id="pizzabox3" class="pizzabox" src="">
+				<img id="pizzabox4" class="pizzabox" src="">
+				<img id="pizzabox5" class="pizzabox" src="">
+				<img id="pizzabox6" class="pizzabox" src="">
+				<img id="pizzabox7" class="pizzabox" src="">
+				<img id="pizzabox8" class="pizzabox" src="">
+				<img id="pizzabox9" class="pizzabox" src="">
+				<img id="pizzabox10" class="pizzabox" src="">
+				<img id="pizzabox11" class="pizzabox" src="">
+				<img id="pizzabox12" class="pizzabox" src="">
 			</div>
 			
 			<div id="cook3move" class="cell">
 				<img id="cook3" src="" />
+				<audio src="sounds/sound-typing-2s.wav" id="type3"></audio>
 			</div>
 			
 			<div id="ovens" class="cell">
 				<img id="oven1" src="">
 				<audio src="sounds/sound-oven-1-open.wav" id="audioovenopen"></audio>
 				<audio src="sounds/sound-oven-1-close.wav" id="audioovenclose"></audio>
+				<audio src="sounds/ding.wav" id="audioovendone"></audio>
 				<img id="oven2" src="">
+				
 			</div>
 			
 			<div id="cook2move" class="cell">
@@ -167,6 +217,7 @@
 				<audio src="sounds/sound-footsteps-1.wav" id="footsteps1" />
 				<audio src="sounds/sound-typing3s.wav" id="type1" />
 				<audio src="sounds/sm64_mario_okey-dokey.wav" id="okeydokey" />
+				<audio src="sounds/sound-order-up.wav" id="orderup" />
 
 			</div>
 			<div id="computertable" class="cell">
