@@ -21,6 +21,7 @@ const Customer = function(id) {
 		//var myPauseTimer2 = setTimeout(cook1.fnOK,2200);
 		eventdone = true;
 	}
+	
 
 	function listener(e) {
 		// console.dir(e);

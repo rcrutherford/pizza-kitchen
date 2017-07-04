@@ -128,12 +128,7 @@ const Cook = function(id) {
 		cook1.StartWalk();
 		pizza++;
 		onOrder.push(pizza);
-		var strHUDOnOrder = 'On Order';
-		for (var i in onOrder) {
-			i++;
-			strHUDOnOrder = strHUDOnOrder +'<br>Pizza: '+i;
-		}
-		HUDOnOrder.innerHTML = strHUDOnOrder;
+		HUD();
 		cook1.OrderUp();
 		while (oven1busy) {
 			var myTimeout = setTimeout(function(){},1000);
@@ -158,12 +153,15 @@ const Cook = function(id) {
     }
     this.cook2Return = function () {
     	//console.log('cook2Return');
-    	onOrder.pop(pizza);
+    	onOrder.pop();
 		inOven.push(pizza);
+		HUD();
     	cook2.ChangeImageRight();
     	oven1.Close();
     	oven1busy = true;
-    	cook2.StartWalk();
+    	cook2.StartWalk(); 
+    	console.log('cook2 walk back sound');
+
     	let c2Stop = setTimeout(cook2.togglecook,cook2AnimationDuration);
     	let otimer = setTimeout(cook3.cook3removepizza,getRandom(3,6)*1000);
     }
@@ -174,15 +172,27 @@ const Cook = function(id) {
     		oven1.Open();
 	    	oven1busy = false;
 	    	cook3.ChangeImagePizza();
-	    	cook3.togglecook(); //start walking
-	    	let c3type = setTimeout(cook3.cook3starttyping,cook3AnimationDuration);},1000);
+	    	cook3.togglecook(); //start walking left
+	    	cook3.StartWalk();
+	    	let c3type = setTimeout(cook3.cook3starttyping,cook3AnimationDuration);
+	    },1000);
 	}
 
     this.cook3starttyping = function () {
-    	cook3.togglecook();
+    	cook3.togglecook(); //stop at computer
     	cook3.ChangeImageLeftTyping();
     	cook3.Type();
+    	inOven.pop();
+    	ready.push(pizza);
+    	HUD();
     	document.getElementById('pizzabox1').style.display='flex';
+    	let c3finishtyping = setTimeout(function(){
+    		cook3.ChangeImageRight();
+    		cook3.StartWalk();
+    		cook3.togglecook(); //walk right
+    		let c3stop = setTimeout(cook3.togglecook,cook3AnimationDuration);
+    	}, 2200)
+    	let custpickup = setTimeout(custpickup1.Pickup,getRandom(3,9)*1000);
     }
 	
     this.togglecook = function(e) {

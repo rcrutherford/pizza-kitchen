@@ -9,6 +9,7 @@
 		<script type="text/javascript" src="scripts/oven.js"></script>
 		<script type="text/javascript" src="scripts/freezer.js"></script>
 		<script type="text/javascript" src="scripts/customer.js"></script>
+		<script type="text/javascript" src="scripts/custpickup.js"></script>
 		<script type="text/javascript" src="scripts/pizzabox.js"></script>
 		
 		<script>
@@ -28,28 +29,36 @@
 			var oven1;
 			var cook1;
 
-			function HUD(pizza) {
+			function HUD() {
 				var HUDOnOrder = document.getElementById('PizzasOnOrder');
-				var strHUDOnOrder = '';
+				var HUDInOven = document.getElementById('PizzasInOven');
+				var HUDReady = document.getElementById('PizzasReady');
+				var HUDGone = document.getElementById('PizzasGone');
+
+				var strHUDOnOrder = 'On Order';
 				for (var i in onOrder) {
 					i++;
 					strHUDOnOrder = strHUDOnOrder +'<br>Pizza: '+i;
 				}	
-				var strHUDInOven = '';
+				HUDOnOrder.innerHTML = strHUDOnOrder;
+				var strHUDInOven = 'In Oven';
 				for (var i in inOven) {
 					i++;
 					strHUDInOven = strHUDInOven +'<br>Pizza: '+i;
 				}
-				var strHUDready = '';
+				HUDInOven.innerHTML = strHUDInOven;
+				var strHUDready = 'Ready';
 				for (var i in ready) {
 					i++;
 					strHUDready = strHUDready +'<br>Pizza: '+i;
 				}
-				var strHUDgone = '';
+				HUDReady.innerHTML = strHUDready;
+				var strHUDgone = 'Gone';
 				for (var i in gone) {
 					i++;
 					strHUDgone = strHUDgone +'<br>Pizza: '+i;
 				}
+				HUDGone.innerHTML = strHUDgone;
 							
 			}
 			
@@ -79,7 +88,7 @@
 				customer1.Arrive();
 
 
-				customer2 = new Customer(2);
+				custpickup1 = new Custpickup(1);
 
 				pizzabox1 = new Pizzabox(1);
 				pizzabox2 = new Pizzabox(2);
@@ -106,6 +115,8 @@
 				document.documentElement.style.setProperty('--cook3-rightmostmovement',cook3divwidth-80);
 				var custarrivevwidth = getComputedStyle(document.getElementById('custarrive')).width.replace('px','');
 				document.documentElement.style.setProperty('--cust-rightmostmovement',custarrivevwidth-100);
+				var pickupwidth = getComputedStyle(document.getElementById('pickupline')).width.replace('px','');
+				document.documentElement.style.setProperty('--pickup-rightmostmovement',pickupwidth-50);
 				
 				var c1 = document.getElementById("cook1");
 				var c2 = document.getElementById("cook2");
@@ -139,7 +150,8 @@
 		<!-- top row of 6  -->
 		<div class="row">
 			<div id="pickupline" class="cell">
-				
+				<img id="custpickup1" src="">
+				<audio src="sounds/thanks1.wav" id="thanks1" />
 			</div>
 			
 			<div id="pickuptable" class="cell">
@@ -162,6 +174,7 @@
 			<div id="cook3move" class="cell">
 				<img id="cook3" src="" />
 				<audio src="sounds/sound-typing-2s.wav" id="type3"></audio>
+				<audio src="sounds/sound-footsteps-3.wav" id="footsteps3"></audio>
 			</div>
 			
 			<div id="ovens" class="cell">
