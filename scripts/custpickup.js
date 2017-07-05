@@ -19,9 +19,13 @@ const Custpickup = function(id) {
 	this.Pickup = function() {
 		custpickupImg.attributes.src.nodeValue = custpickupArrive;
 		custpickupImg.style.animationName = 'custpickup';
+		audioCustFootsteps.play();
 	
 		var myPauseTimer = setTimeout(function(){
+			audioCustFootsteps.pause();
 			audioThanks.play();
+			audioCustFootsteps.play();
+			//let myTimeout = setTimeout(function(){audioCustFootsteps.play();},1000);
 			p.style.display="none";
 			custpickupImg.attributes.src.nodeValue = 'images/customerwithpizza'+id.toString()+'.png';
 			ready.pop();

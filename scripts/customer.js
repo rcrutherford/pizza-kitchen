@@ -4,19 +4,25 @@ const Customer = function(id) {
 	const customerImg = document.getElementById('customer'+id);
 	const customerArrive = 'images/customer'+id.toString()+'.png';
 	const audioAsk = document.getElementById('ask' + id);
+	const audioCustFootsteps = document.getElementById('custfootsteps' + id);
 	//var cook1 = document.getElementById('cook1');
 	//console.log(customerArrive);
 
 	function toggleCust(e) {
         customerImg.classList.toggle('paused');
+        audioCustFootsteps.pause();
         audioAsk.play();
-        var myPauseTimer = setTimeout(function(){customerImg.classList.toggle('paused');},2000);
+        var myPauseTimer = setTimeout(function(){
+        	customerImg.classList.toggle('paused'); 
+        	audioCustFootsteps.play();
+    	},2000);
         var myPauseTimer2 = setTimeout(function(){cook1.fnOK();},2200);
         
     }
 	
 	this.Arrive = function() {
 		customerImg.attributes.src.nodeValue = customerArrive;
+		audioCustFootsteps.play();
 		var myPauseTimer = setTimeout(toggleCust,2000);
 		//var myPauseTimer2 = setTimeout(cook1.fnOK,2200);
 		eventdone = true;
