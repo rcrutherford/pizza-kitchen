@@ -20,6 +20,7 @@
 			var pizza = 0;
 			var eventdone = false;
 			var oven1busy= false;
+			var cust = [];
 			
 			var cook1;
 			var cook2;
@@ -83,10 +84,12 @@
 				freezer1.Close();
 				// freezer2 = new Freezer(2);
 				// freezer2.Close();
+				
+				// cust[1] = new Customer(1);
+				// cust[1].Arrive();
 
 				customer1 = new Customer(1);
 				customer1.Arrive();
-
 
 				custpickup1 = new Custpickup(1);
 
