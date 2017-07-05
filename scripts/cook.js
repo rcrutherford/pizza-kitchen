@@ -101,7 +101,6 @@ const Cook = function(id) {
 		}
 	}
 
-
 	this.fnOK = function () {
 		cook1.OkeyDokey();
 		cook1.ChangeImageRight();
@@ -110,7 +109,6 @@ const Cook = function(id) {
 		var myTimeout = setTimeout(cook1ActionsRight,cook1AnimationDuration);
 	}
 
-	
     function cook1ActionsLeft() {
     	toggleCook();
 		p.attributes['src'].nodeValue = "images/pizza-man-left.gif";
@@ -122,6 +120,7 @@ const Cook = function(id) {
 		cook1.Type();
 		var myTimeout = setTimeout(cook1goback,cook1AnimationDuration); //after 3 seconds head back left
 	}
+	
 	function cook1goback () {
 		cook1.ChangeImageLeft();
 		cook1.togglecook();
@@ -142,6 +141,7 @@ const Cook = function(id) {
 		var myTimeout = setTimeout(cook1.togglecook,cook1AnimationDuration)
 
 	}
+	
 	function cook2ActionsGetPizza () {
     	freezer1.Open(); //open freezer 1
     	let fclose = setTimeout(freezer1.Close,cook2AnimationDuration/2)
@@ -151,6 +151,7 @@ const Cook = function(id) {
     	let c2Return= setTimeout(cook2.cook2Return,cook2AnimationDuration);
     	
     }
+    
     this.cook2Return = function () {
     	//console.log('cook2Return');
     	onOrder.pop();
