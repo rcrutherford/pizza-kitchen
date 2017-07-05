@@ -192,7 +192,7 @@ const Cook = function(id) {
     		cook3.togglecook(); //walk right
     		let c3stop = setTimeout(cook3.togglecook,cook3AnimationDuration);
     	}, 2200)
-    	let custpickup = setTimeout(custpickup1.Pickup,getRandom(3,9)*1000);
+    	let custpickup = setTimeout(custpickup1.Pickup,getRandom(1,5)*1000);
     }
 	
     this.togglecook = function(e) {
