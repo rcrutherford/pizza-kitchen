@@ -5,15 +5,35 @@
       --cust-rightmostmovement: 10;
       --pickup-rightmostmovement: 10;
     }
+    /*<a href="http://wallpapers-web.com/colorful-slices-wallpapers/4193705.html"><img src="http://wallpapers-web.com/data/out/54/4193705-colorful-slices-wallpapers.jpg" width="192" height="120" /></a>*/
+    body, html {
+        height: 100%;
+        margin: 0;
+    }
 
+    .bg {
+        /* The image used */
+        background-image: url("images/floor.jpg");
+
+        /* Full height */
+        height: 100%; 
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /*background-image: linear-gradient(to top, black 0%,white 100%), url('w3css.gif');*/
+        background-blend-mode: lighten;
+
+    }
     .row {
       display: flex;
       flex-wrap: nowrap;
     }
     .cell {
       display: flex;
-      background: white;
-      outline:1px solid red;
+      /*background: white;*/
+      /*outline:1px solid red;*/
       flex: 1; /*1 20%;*/
       min-width: 150px;
       min-height: 200px;
@@ -26,9 +46,9 @@
       position: absolute;
     }
 
-    /*#pause {
+    #pause {
       display: none;
-    }*/
+    }
     #pickuptableimg {
       width:100%;
       max-height:40%;
@@ -79,21 +99,21 @@
     
     @keyframes custarrive {
       0% {
-        bottom: 0;
-        left: 0;
+        bottom: 0px;
+        left: -100px;
       }
       50% {
         bottom: 0px;
         left: calc((var(--cust-rightmostmovement)) * 1px);
       }
       100% {
-        bottom: -50px;
-        left: -300px;
+        bottom: 100px;
+        left: -200px;
       }  
     }
     @keyframes custpickup {
       0% {
-        bottom: 0;
+        bottom: -100px;
         left: -100px;
       }
       50% {
@@ -101,8 +121,8 @@
         left: calc((var(--pickup-rightmostmovement)) * 1px);
       }
       100% {
-        bottom: 150px;
-        left: -300px;
+        bottom: 0px;
+        left: -200px;
       }  
     }
     

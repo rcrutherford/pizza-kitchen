@@ -59,7 +59,7 @@
         left: calc(var(--cook3-rightmostmovement) * 1px);
       }
       to {
-        bottom: 0px;
-        left: -80px;
+        bottom: 5px;
+        left: -85px;
       }
     }

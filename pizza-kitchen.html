@@ -147,102 +147,104 @@
 		</style>
 	</head>
 	<body>
-		<!-- top row of 6  -->
-		<div class="row">
-			<div id="pickupline" class="cell">
-				<img id="custpickup1" src="">
-				<audio src="sounds/thanks1.wav" id="thanks1" />
-				<audio src="sounds/sound-custfootsteps4s-1.wav" id="custfootsteps1" />
-			</div>
-			
-			<div id="pickuptable" class="cell">
-				<img id="pickuptableimg" src="images/table.png">
-				<img id="computeronpickuptableimg" src="images/computer-left.png">
-				<img id="pizzabox1" class="pizzabox" src="">
-				<img id="pizzabox2" class="pizzabox" src="">
-				<img id="pizzabox3" class="pizzabox" src="">
-				<img id="pizzabox4" class="pizzabox" src="">
-				<img id="pizzabox5" class="pizzabox" src="">
-				<img id="pizzabox6" class="pizzabox" src="">
-				<img id="pizzabox7" class="pizzabox" src="">
-				<img id="pizzabox8" class="pizzabox" src="">
-				<img id="pizzabox9" class="pizzabox" src="">
-				<img id="pizzabox10" class="pizzabox" src="">
-				<img id="pizzabox11" class="pizzabox" src="">
-				<img id="pizzabox12" class="pizzabox" src="">
-			</div>
-			
-			<div id="cook3move" class="cell">
-				<img id="cook3" src="" />
-				<audio src="sounds/sound-typing-2s.wav" id="type3"></audio>
-				<audio src="sounds/sound-footsteps-3.wav" id="footsteps3"></audio>
-			</div>
-			
-			<div id="ovens" class="cell">
-				<img id="oven1" src="">
-				<audio src="sounds/sound-oven-1-open.wav" id="audioovenopen"></audio>
-				<audio src="sounds/sound-oven-1-close.wav" id="audioovenclose"></audio>
-				<audio src="sounds/ding.wav" id="audioovendone"></audio>
-				<img id="oven2" src="">
+		<div class="bg">
+			<!-- top row of 6  -->
+			<div class="row">
+				<div id="pickupline" class="cell">
+					<img id="custpickup1" src="">
+					<audio src="sounds/thanks1.wav" id="thanks1" />
+					<audio src="sounds/sound-custfootsteps4s-1.wav" id="custfootsteps1" />
+				</div>
 				
-			</div>
+				<div id="pickuptable" class="cell">
+					<img id="pickuptableimg" src="images/table.png">
+					<img id="computeronpickuptableimg" src="images/computer-left.png">
+					<img id="pizzabox1" class="pizzabox" src="">
+					<img id="pizzabox2" class="pizzabox" src="">
+					<img id="pizzabox3" class="pizzabox" src="">
+					<img id="pizzabox4" class="pizzabox" src="">
+					<img id="pizzabox5" class="pizzabox" src="">
+					<img id="pizzabox6" class="pizzabox" src="">
+					<img id="pizzabox7" class="pizzabox" src="">
+					<img id="pizzabox8" class="pizzabox" src="">
+					<img id="pizzabox9" class="pizzabox" src="">
+					<img id="pizzabox10" class="pizzabox" src="">
+					<img id="pizzabox11" class="pizzabox" src="">
+					<img id="pizzabox12" class="pizzabox" src="">
+				</div>
+				
+				<div id="cook3move" class="cell">
+					<img id="cook3" src="" />
+					<audio src="sounds/sound-typing-2s.wav" id="type3"></audio>
+					<audio src="sounds/sound-footsteps-3.wav" id="footsteps3"></audio>
+				</div>
+				
+				<div id="ovens" class="cell">
+					<img id="oven1" src="">
+					<audio src="sounds/sound-oven-1-open.wav" id="audioovenopen"></audio>
+					<audio src="sounds/sound-oven-1-close.wav" id="audioovenclose"></audio>
+					<audio src="sounds/ding.wav" id="audioovendone"></audio>
+					<img id="oven2" src="">
+					
+				</div>
+				
+				<div id="cook2move" class="cell">
+					<img id="cook2" src="" />
+					<audio src="sounds/sound-footsteps-2.wav" id="footsteps2" />
+				</div>
+					
+				<div id="freezers" class="cell">
+					<img id="freezer1" src="">
+					<audio src="sounds/sound-fridge-2-open.wav" id="audiofreezeropen1"></audio>
+					<audio src="sounds/sound-fridge-2-close.wav" id="audiofreezerclose1"></audio>
+					<img id="freezer2" src="">
+				</div>
 			
-			<div id="cook2move" class="cell">
-				<img id="cook2" src="" />
-				<audio src="sounds/sound-footsteps-2.wav" id="footsteps2" />
 			</div>
 				
-			<div id="freezers" class="cell">
-				<img id="freezer1" src="">
-				<audio src="sounds/sound-fridge-2-open.wav" id="audiofreezeropen1"></audio>
-				<audio src="sounds/sound-fridge-2-close.wav" id="audiofreezerclose1"></audio>
-				<img id="freezer2" src="">
+			<div class="row">
+				
+				<div id="spaceleft" class="cell"></div>
+				
+				<div id="HUD" class="cell">
+					<div id="PizzasOnOrder" class="HUDitem">OnOrder</div>
+					<div id="PizzasInOven" class="HUDitem">InOven</div>
+					<div id="PizzasReady" class="HUDitem">Ready</div>
+					<div id="PizzasGone" class="HUDitem">Gone</div>
+				</div>
+				
+				<div id="spaceright" class="cell"></div>
 			</div>
-		
-		</div>
-			
-		<div class="row">
-			
-			<div id="spaceleft" class="cell"></div>
-			
-			<div id="HUD" class="cell">
-				<div id="PizzasOnOrder" class="HUDitem">OnOrder</div>
-				<div id="PizzasInOven" class="HUDitem">InOven</div>
-				<div id="PizzasReady" class="HUDitem">Ready</div>
-				<div id="PizzasGone" class="HUDitem">Gone</div>
-			</div>
-			
-			<div id="spaceright" class="cell"></div>
-		</div>
-		<div class="row">
-			
-			<div id="custarrive" class="cell">
-				<img id="customer1" src="">
-				<audio src="sounds/ask1.wav" id="ask1" />
-				<img id="customer2" src="">
-				<audio src="sounds/ask2.wav" id="ask2" />
-				<img id="customer3" src="">
-				<img id="customer4" src="">
-				<img id="customer5" src="">
-			</div>
-			<div id="ordertable" class="cell">
-				<img id="ordertableimg" src="images/table.png">
-			</div>
-			<div id="cook1move" class="cell">
-				<img id="cook1" src="" >
-				<audio src="sounds/sound-footsteps-1.wav" id="footsteps1" />
-				<audio src="sounds/sound-typing3s.wav" id="type1" />
-				<audio src="sounds/sm64_mario_okey-dokey.wav" id="okeydokey" />
-				<audio src="sounds/sound-order-up.wav" id="orderup" />
+			<div class="row">
+				
+				<div id="custarrive" class="cell">
+					<img id="customer1" src="">
+					<audio src="sounds/ask1.wav" id="ask1" />
+					<img id="customer2" src="">
+					<audio src="sounds/ask2.wav" id="ask2" />
+					<img id="customer3" src="">
+					<img id="customer4" src="">
+					<img id="customer5" src="">
+				</div>
+				<div id="ordertable" class="cell">
+					<img id="ordertableimg" src="images/table.png">
+				</div>
+				<div id="cook1move" class="cell">
+					<img id="cook1" src="" >
+					<audio src="sounds/sound-footsteps-1.wav" id="footsteps1" />
+					<audio src="sounds/sound-typing3s.wav" id="type1" />
+					<audio src="sounds/sm64_mario_okey-dokey.wav" id="okeydokey" />
+					<audio src="sounds/sound-order-up.wav" id="orderup" />
+
+				</div>
+				<div id="computertable" class="cell">
+					<img id="computertableimg" src="images/table.png">
+					<img id="computeroncomputertableimg" src="images/computer-right.png">
+				</div>
 
 			</div>
-			<div id="computertable" class="cell">
-				<img id="computertableimg" src="images/table.png">
-				<img id="computeroncomputertableimg" src="images/computer-right.png">
-			</div>
-
+			<button type="text" id="pause" value="Pause Chef" >
 		</div>
-		<button type="text" id="pause" value="Pause Chef" >
 	</body>
 	<script type="text/javascript">
 	
